@@ -1,0 +1,6 @@
+{
+  "about": "The uniform this site builds. Its frames live in assets/<slug>/ (shirt-frame.png, pants-frame.png) and its items in data/layout.json under its name. With one entry, the branch buttons are hidden and the Drive folder holds Shirt and Pants directly. More entries add branch tabs, each with a button.png and a Drive folder of the same name.",
+  "branches": [
+    { "name": "CDF", "slug": "cdf" }
+  ]
+}

@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>CDF Uniform Generator</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lacquer&family=Averia+Libre:wght@400;700&display=swap">
+<link rel="stylesheet" href="css/site.css">
+<!-- Code: js/main.js (page), catalog.js (items from data/ + Drive), outfit.js (selection + layer order),
+     rules.js (warnings), render.js (drawing + downloads), ui.js (interface pieces), config.js (fixed sizes). -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js" defer></script>
+<script type="module" src="js/main.js"></script>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div>
+      <img class="logo" src="assets/site/logo.png" width="760" height="206" alt="Civil Defense Front">
+      <h1>Uniform Generator</h1>
+    </div>
+  </header>
+
+  <main class="grid">
+    <aside class="side">
+      <div id="mine"></div>
+      <div class="stage">
+        <div class="bar">
+          <div class="switch" role="group" aria-label="Garment">
+            <button id="tab-shirt" type="button" aria-pressed="true" data-file="shirt" title="Pick items for the shirt (torso and arms)">Shirt</button>
+            <button id="tab-pants" type="button" aria-pressed="false" data-file="pants" title="Pick items for the pants (legs and lower torso)">Pants</button>
+          </div>
+        </div>
+        <figure><canvas id="out" width="585" height="559" role="img" aria-label="Uniform preview"></canvas></figure>
+        <div class="bar">
+          <span class="tally"><span class="count" id="count" role="status">Loading layers…</span> <button class="link" id="clear" type="button" title="Untick every generator item on both the shirt and the pants. Your own PNGs stay.">Clear all</button> <button class="link" id="defaults" type="button" title="Replace the outfit with the default uniform on both the shirt and the pants. Your own PNGs stay.">Use defaults</button></span>
+          <span class="btns">
+            <button class="save alt" id="save-layers" type="button" disabled title="Save each ticked item as its own 585×559 PNG in a .zip, numbered from the bottom layer up">Download layers</button>
+            <button class="save" id="save" type="button" disabled title="Save the finished template as a PNG, ready to send for approval and upload to Roblox">Download PNG</button>
+          </span>
+        </div>
+      </div>
+      <p class="warn" id="warn" aria-live="polite" hidden></p>
+      <p class="msg" id="msg" aria-live="polite" hidden></p>
+      <p class="msg err" id="notice" role="alert" hidden></p>
+      <ol class="steps">
+        <li><strong>Pick your items</strong> for the shirt, then switch to pants.</li>
+        <li><strong>Download</strong> each PNG.</li>
+        <li><strong>Send both for approval</strong> before uploading.</li>
+        <li><strong>Upload to Roblox</strong> as a Shirt and Pants.</li>
+      </ol>
+    </aside>
+    <div class="right">
+      <nav class="branches" id="branches" aria-label="Branch" hidden></nav>
+      <section class="list" id="list" aria-label="Items"></section>
+    </div>
+  </main>
+
+  <footer>Artwork by Shrugly · Formatted by Smithingson</footer>
+</div>
+<noscript><p class="msg">The generator needs JavaScript turned on.</p></noscript>
+</body>
+</html>

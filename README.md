@@ -2,6 +2,8 @@
 
 Pick shirt and pants layers for the Civil Defense Front uniform, preview the template live, and download the finished PNGs for Roblox.
 
+Site: https://smithingson.github.io/CDFClothingGenerator/
+
 Artwork by Shrugly · Formatted by Smithingson
 
 ## Your own PNGs (for players)
@@ -62,9 +64,9 @@ A static site with no build step and one outside library (JSZip, for the layers 
 
 ```
 npm install --no-save playwright && npx playwright install chromium
-node tests/fetch_uploads.mjs . <live site url>    # copies the Drive items from the live site
+node tests/fetch_uploads.mjs                      # copies the Drive items from the live site
 python -m http.server 8000                        # in a second terminal: serves this folder
-node tests/regression.mjs <live site url> out/live
+node tests/regression.mjs https://smithingson.github.io/CDFClothingGenerator/ out/live
 node tests/regression.mjs http://localhost:8000/ out/local
 python tests/compare_runs.py out/live out/local
 ```

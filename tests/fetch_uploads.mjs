@@ -1,11 +1,11 @@
 // Copy the Drive items (uploads.json + uploads/) from the live site into a folder, so a local copy of the
 // site shows the same items. No install needed:  node tests/fetch_uploads.mjs [folder] [site url]
-// Defaults: the repo folder and https://smithingson.github.io/LarovanUniformGenerator/
+// Defaults: the repo folder and https://smithingson.github.io/CDFClothingGenerator/
 import fs from "node:fs";
 import path from "node:path";
 
 const dir = process.argv[2] || ".";
-const site = (process.argv[3] || "https://smithingson.github.io/LarovanUniformGenerator/").replace(/\/?$/, "/");
+const site = (process.argv[3] || "https://smithingson.github.io/CDFClothingGenerator/").replace(/\/?$/, "/");
 
 const get = async url => {
   const r = await fetch(url);

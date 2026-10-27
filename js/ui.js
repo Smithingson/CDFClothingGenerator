@@ -34,11 +34,15 @@ function noneRow(groupName, checked, onPick) {
 // A collapsible section; its "k of n" counter is filled in by updateCounts.
 function section(title, items, ...content) {
   const sec = el("details", { className: "sec", open: true },
-    el("summary", { title: "Show or hide this section" }, el("h2", { textContent: title }), el("span", { className: "n" })),
+    el("summary", { title: "Show or hide this section" }, el("h2", { textContent: headingCase(title) }), el("span", { className: "n" })),
     el("div", { className: "items" }, ...content));
   sec.dataset.items = items.map(l => l.id).join(",");
   return sec;
 }
+
+// Section headings: each word starts with a capital, the rest lowercase ("ALICE RIG + POUCHES" -> "Alice Rig + Pouches").
+// Display only: Drive folders keep their own names.
+const headingCase = text => text.toLowerCase().replace(/(^|[\s(\-\/])(\p{L})/gu, (m, s, c) => s + c.toUpperCase());
 
 const sentenceCase = text => text.toLowerCase().replace(/(^|[.!?]\s+)([a-z])/g, (m, s, c) => s + c.toUpperCase());
 

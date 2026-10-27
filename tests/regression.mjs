@@ -35,7 +35,7 @@ async function pick(p, section, label, check = true, nth = 0) {
   const found = await p.evaluate(([section, label, nth]) => {
     let k = 0;
     for (const sec of document.querySelectorAll(".sec")) {
-      if (sec.querySelector("h2").textContent.trim() !== section) continue;
+      if (sec.querySelector("h2").textContent.trim().toLowerCase() !== section.toLowerCase()) continue;
       for (const row of sec.querySelectorAll(".row")) {
         const b = row.querySelector(".lbl b");
         if (b && b.textContent.trim() === label && k++ === nth) { row.querySelector("input").dataset.t = "1"; return true; }
